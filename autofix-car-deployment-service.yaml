@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autofix-car-deployment
+  labels:
+    app: autofix-car-deployment
+spec:
+  selector:
+    matchLabels:
+      app: autofix-car-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: autofix-car-deployment
+    spec:
+      containers:
+        - name: autofix-car
+          image: isisi/autofix-car
+          ports:
+            - containerPort: 8090

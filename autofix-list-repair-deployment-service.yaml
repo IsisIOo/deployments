@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autofix-list-repair-deployment
+  labels:
+    app: autofix-list-repair-deployment
+spec:
+  selector:
+    matchLabels:
+      app: autofix-list-repair-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: autofix-list-repair-deployment
+    spec:
+      containers:
+        - name: autofix-car
+          image: isisi/autofix-list-repair
+          ports:
+            - containerPort: 8091
